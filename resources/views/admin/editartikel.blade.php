@@ -59,24 +59,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h5 class="m-0">Welcome!</h5>
               </div>
               <div class="card-body">
-              <form action="/artikel/insert" method="post">
+                @foreach($artikel as $a)
+              <form action="/artikel/update" method="post">
               {{ csrf_field() }}
               
                 <div class="form-group">
+                  <label for="id">Id:</label>
+                  <input type="text" class="form-control" id="id" value="{{$a->id}}" name="id">
+                </div>
+                <div class="form-group">
                   <label for="author">Author:</label>
-                  <input type="text" class="form-control" id="author" placeholder="author" name="author">
+                  <input type="text" class="form-control" id="author" value="{{$a->author}}" name="author">
                 </div>
                 <div class="form-group">
                   <label for="category">Category:</label>
-                  <input type="text" class="form-control" id="category" placeholder="category" name="category">
+                  <input type="text" class="form-control" id="category" value="{{$a->category}}" name="category">
                 </div>
                 <div class="form-group">
                   <label for="title">Title:</label>
-                  <input type="text" class="form-control" id="title" placeholder="title" name="title">
+                  <input type="text" class="form-control" id="title" value="{{$a->title}}" name="title">
                 </div>
                 <div class="form-group">
                   <label for="content">Content:</label>
-                  <textarea id="content" class="form-control" name="content" rows="3" cols="90">  </textarea>
+                  <textarea id="content" class="form-control" value="{{$a->content}}" name="content" rows="3" cols="90">  </textarea>
                 </div>
 
                 <div class="form-group">
@@ -91,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                
                 <button type="submit" class="btn btn-default">Simpan</button>
               </form>
-                
+                @endforeach
               </div>
             </div>
           </div>

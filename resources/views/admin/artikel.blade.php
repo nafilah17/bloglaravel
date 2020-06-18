@@ -64,13 +64,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h5 class="m-0">Artikel</h5>
               </div>
               <div class="card-body">
-              <a href="/artikel/add"> + Tambah Artikel Baru</a>
+              <a href="/artikel/add"> + Add Article </a>
                 <!-- tabel artikel here -->
                   <div class="table-responsive">
                     <table class="table table-hover">
@@ -79,6 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <th>Id</th>
                           <th>Author</th>
                           <th>Category</th>
+                           <th>Title</th>
                           <th>Content</th>
                           <th>Created_at</th>
                           <th>Update_at</th>
@@ -86,17 +87,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </tr>
                       </thead>
                       <tbody>
-                     @foreach ($tb_article as $a)
+                     @foreach ($artikel as $a)
                         <tr>
-                          <td>{{ $a->id_article }}</td>
+                          <td>{{ $a->id }}</td>
                           <td>{{ $a->author }}</td>
                           <td>{{ $a->category }}</td>
+                          <td>{{ $a->title }}</td>
                           <td>{{ $a->content }}</td>
                           <td>{{ $a->created_at }}</td>
                           <td>{{ $a->updated_at }}</td>
                           <td>
-                            <a href="#">Edit</a>
-						                <a href="#">Hapus</a>
+                            <a href="/artikel/edit/{{ $a->id }}">Edit</a>
+						                <a href="/artikel/delete/{{ $a->id }}">Delete</a>
                           </td>
                         </tr>
                      @endforeach
@@ -110,11 +112,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->
+
+     
+ {{ $artikel->links() }}
   </div>
   <!-- /.content -->
 </div>
   <!-- /.content-wrapper -->
- 
+
+
 
   <!-- FOOTER HERE -->
   @include('admin/footer')

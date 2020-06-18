@@ -18,28 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-  <!-- tiny -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="/assets/admin/tiny/js/tinymce/tinymce.min.js"></script>
-
-<style>
-  form {
-    width:800px;
-  }
-</style>
-
-<script>
-  tinymce.init({
-    selector: '.textEditor',
-    plugins: 'link lists image advlist fullscreen media code table emoticons textcolor codesample hr preview',
-    menubar: false,
-    toolbar: [
-      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link',
-      ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
-    ],
-  });
-</script>
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -59,12 +38,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Add Artikel</h1>
+            <h1 class="m-0 text-dark">Edit Users</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Artikel</li>
+              <li class="breadcrumb-item active">Edit Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -82,39 +61,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h5 class="m-0">Welcome!</h5>
               </div>
               <div class="card-body">
-              <form action="/artikel/insert" method="post">
+                 @foreach($users as $u)
+              <form action="/users/update" method="post">
               {{ csrf_field() }}
               
                 <div class="form-group">
-                  <label for="author">Author:</label>
-                  <input type="text" class="form-control" id="author" placeholder="author" name="author">
+                  <label for="id">Id:</label>
+                  <input type="text" class="form-control" id="id" value="{{$u->id}}" name="id">
                 </div>
                 <div class="form-group">
-                  <label for="category">Category:</label>
-                  <input type="text" class="form-control" id="category" placeholder="category" name="category">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name" value="{{$u->name}}" name="name">
                 </div>
                 <div class="form-group">
-                  <label for="title">Title:</label>
-                  <input type="text" class="form-control" id="title" placeholder="title" name="title">
+                  <label for="title">Email:</label>
+                  <input type="email" class="form-control" id="email"value="{{$u->email}}" name="email">
                 </div>
                 <div class="form-group">
-                  <label for="content">Content:</label>
-                  <textarea id="content" class="textEditor" name="content" rows="10" cols="90">  </textarea>
+                  <label for="role">Role</label>
+                  <select name="role" id="role" class="form-control">
+                    <option value="author">Author</option>
+                    <option value="admin">Admin</option>
+                  </select>
                 </div>
 
-                <div class="form-group">
-                  <label for="created_at">Created at:</label>
-                   <input type="time" id="created_at" class="form-control" name="timestamp">
-                </div>
-               
                  <div class="form-group">
-                  <label for="updated_at">Updated at:</label>
-                   <input type="time" id="updated_at" class="form-control" name="timestamp">
+                  <label for="title">Profile:</label>
+                  <input type="profile" class="form-control" id="profile" value="{{$u->profile}}" name="profile">
                 </div>
-               
+                <div class="form-group">
+                  <label for="title">Password:</label>
+                  <input type="password" class="form-control" id="password" value="{{$u->password}}" name="password">
+                </div>
+                
                 <button type="submit" class="btn btn-default">Simpan</button>
               </form>
-                
+                @endforeach
               </div>
             </div>
           </div>

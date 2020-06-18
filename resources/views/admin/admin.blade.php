@@ -17,6 +17,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" type="text/css" href="/assets/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+   <!-- tiny -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/assets/admin/tiny/js/tinymce/tinymce.min.js"></script>
+
+<style>
+  form {
+    width:800px;
+  }
+</style>
+
+<script>
+  tinymce.init({
+    selector: '.textEditor',
+    plugins: 'link lists image advlist fullscreen media code table emoticons textcolor codesample hr preview',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link',
+      ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
+    ],
+  });
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -91,5 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script type="text/javascript" src="/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script type="text/javascript" src="/assets/admin/dist/js/adminlte.min.js"></script>
+
+
 </body>
 </html>

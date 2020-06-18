@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+  <title>Admin | Blog</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" type="text/css" href="/assets/admin/plugins/fontawesome-free/css/all.min.css">
@@ -17,6 +17,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" type="text/css" href="/assets/admin/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+   <!-- tiny -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/assets/admin/tiny/js/tinymce/tinymce.min.js"></script>
+
+<style>
+  form {
+    width:800px;
+  }
+</style>
+
+<script>
+  tinymce.init({
+    selector: '.textEditor',
+    plugins: 'link lists image advlist fullscreen media code table emoticons textcolor codesample hr preview',
+    menubar: false,
+    toolbar: [
+      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link',
+      ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
+    ],
+  });
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -36,12 +59,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
+            <h1 class="m-0 text-dark">Edit Artikel</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item active">Edit Artikel</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -53,7 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h5 class="m-0">Welcome!</h5>
@@ -81,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="form-group">
                   <label for="content">Content:</label>
-                  <textarea id="content" class="form-control" value="{{$a->content}}" name="content" rows="3" cols="90">  </textarea>
+                  <textarea id="content" class="textEditor" value="{{$a->content}}" name="content" rows="10" cols="90">  </textarea>
                 </div>
 
                 <div class="form-group">
@@ -125,5 +148,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script type="text/javascript" src="/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script type="text/javascript" src="/assets/admin/dist/js/adminlte.min.js"></script>
+
+
 </body>
 </html>

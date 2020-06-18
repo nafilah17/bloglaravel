@@ -18,28 +18,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-   <!-- tiny -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="/assets/admin/tiny/js/tinymce/tinymce.min.js"></script>
-
-<style>
-  form {
-    width:800px;
-  }
-</style>
-
-<script>
-  tinymce.init({
-    selector: '.textEditor',
-    plugins: 'link lists image advlist fullscreen media code table emoticons textcolor codesample hr preview',
-    menubar: false,
-    toolbar: [
-      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link',
-      ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
-    ],
-  });
-</script>
 
   <style type="text/css">
 		.pagination li{
@@ -70,12 +48,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Artikel</h1>
+            <h1 class="m-0 text-dark">Profile</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Artikel</li>
+              <li class="breadcrumb-item active">Profile</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -90,38 +68,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Artikel</h5>
+                <h5 class="m-0">Profile</h5>
               </div>
               <div class="card-body">
-              <a href="/artikel/add"> + Add Article </a>
-                <!-- tabel artikel here -->
+              <a href="/profile/add"> + Add Profile </a>
+                <!-- tabel  here -->
                   <div class="table-responsive">
                     <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Author</th>
-                          <th>Category</th>
-                           <th>Title</th>
-                          <th>Content</th>
+                          <th>Name</th>
+                          <th>Gender</th>
+                          <th>Birthday</th>
                           <th>Created_at</th>
                           <th>Update_at</th>
                           <th>Option</th>
                         </tr>
                       </thead>
                       <tbody>
-                     @foreach ($artikel as $a)
+                     @foreach ($profil as $p)
                         <tr>
-                          <td>{{ $a->id }}</td>
-                          <td>{{ $a->author }}</td>
-                          <td>{{ $a->category }}</td>
-                          <td>{{ $a->title }}</td>
-                          <td>{{ $a->content }}</td>
-                          <td>{{ $a->created_at }}</td>
-                          <td>{{ $a->updated_at }}</td>
+                          <td>{{ $p->id }}</td>
+                          <td>{{ $p->name }}</td>
+                          <td>{{ $p->gender }}</td>
+                          <td>{{ $p->birthday }}</td>
+                          <td>{{ $p->created_at }}</td>
+                          <td>{{ $p->updated_at }}</td>
                           <td>
-                            <a href="/artikel/edit/{{ $a->id }}">Edit</a>
-						                <a href="/artikel/delete/{{ $a->id }}">Delete</a>
+                            <a href="/profile/edit/{{ $p->id }}">Edit</a>
+						                <a href="/profile/delete/{{ $p->id }}">Delete</a>
                           </td>
                         </tr>
                      @endforeach
@@ -137,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div><!-- /.container-fluid -->
 
      
- {{ $artikel->links() }}
+ {{ $profil->links() }}
   </div>
   <!-- /.content -->
 </div>

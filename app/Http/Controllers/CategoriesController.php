@@ -18,7 +18,7 @@ class CategoriesController extends Controller
     }
     public function insert(Request $request){
     	DB::table('categories')->insert([
-    		'name' => $request->name,
+    		'name' => $request->name
     		
     	]);
     	return redirect('/categories');
@@ -32,7 +32,8 @@ class CategoriesController extends Controller
 
     public function update(Request $request){
         DB::table('categories')->where('id', $request->id)->update([
-            'name' => $request->name]);
+            'name' => $request->name 
+            ]);
         return redirect ('/categories');
     }
 

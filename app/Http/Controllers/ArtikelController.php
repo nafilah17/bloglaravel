@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
+$current_date_time = Carbon::now()->toDateTimeString();
 class ArtikelController extends Controller
 {
     public function index(){
@@ -23,8 +24,8 @@ class ArtikelController extends Controller
     		'category' => $request->category,
             'title' => $request->title,
     		'content' => $request->content,
-    		'created_at' => $request->created_at,
-    		'updated_at' => $request->updated_at
+    		'created_at' => date('Y-m-d H:i:s'),
+    		'updated_at' => date('Y-m-d H:i:s')
     	]);
     	return redirect('/artikel');
     }
@@ -41,8 +42,8 @@ class ArtikelController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'content' => $request->content,
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at]);
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')]);
         return redirect ('/artikel');
     }
 

@@ -32,12 +32,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script>
   tinymce.init({
     selector: '.textEditor',
-    plugins: 'link lists image advlist fullscreen media code table emoticons textcolor codesample hr preview',
+    entity_encoding: "raw",
+    forced_root_block:"",
+    force_br_newlines:false,
+    force_p_newlines:false,
+    plugins: [
+    'advlist autolink lists link charmap preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code codesample'],
     menubar: false,
-    toolbar: [
-      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link',
-      ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
-    ],
+    toolbar: 
+      'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image media link | formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code | fullscreen',
+    setup: function (editor){
+      editor.on('change', function() {
+        editor.save();
+      });
+    }
   });
 </script>
 </head>

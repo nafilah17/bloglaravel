@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 //HOME
 Route::get('/blog', 'BlogController@index');
-Route::get('/blog/detail', 'BlogController@detail');
+Route::get('/blog/detail/{id}', 'BlogController@detail');
 
 //ADMIN
 Route::get('/admin', 'AdminController@index');

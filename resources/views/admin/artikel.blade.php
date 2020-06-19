@@ -116,7 +116,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <td>{{ $a->author }}</td>
                           <td>{{ $a->category }}</td>
                           <td>{{ $a->title }}</td>
-                          <td>{{ $a->content }}</td>
+                          <td>{{substr( $a->content,0,150) }}</td>
                           <td>{{ $a->created_at }}</td>
                           <td>{{ $a->updated_at }}</td>
                           <td>

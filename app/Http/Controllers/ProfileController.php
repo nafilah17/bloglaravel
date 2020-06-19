@@ -22,8 +22,8 @@ class ProfileController extends Controller
     		'name' => $request->name,
     		'gender' => $request->gender,
             'birthday' => $request->birthday,
-    		'created_at' => $request->created_at,
-    		'updated_at' => $request->updated_at
+    		'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
     	]);
     	return redirect('/profile');
     }
@@ -39,8 +39,8 @@ class ProfileController extends Controller
             'name' => $request->name,
     		'gender' => $request->gender,
             'birthday' => $request->birthday,
-    		'created_at' => $request->created_at,
-    		'updated_at' => $request->updated_at]);
+    		'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')]);
         return redirect ('/profile');
     }
 

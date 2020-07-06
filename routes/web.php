@@ -64,3 +64,11 @@ Route::get('/profile/edit/{id}', 'ProfileController@edit');
 Route::post('/profile/update', 'ProfileController@update');
 //delete
 Route::get('/profile/delete/{id}', 'ProfileController@delete');
+
+
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////ROUTE ELOQUENT////////////////////////////////////////
+
+Route::get('/a_categories', 'A_categoriesController@index');
+
+Route::get('/a_articles', 'A_articlesController@index');

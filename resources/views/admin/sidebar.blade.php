@@ -16,25 +16,25 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/profile" class="nav-link">
+            <a href="/a_profile" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Profile</p>
             </a>
             </li>
             <li class="nav-item">
-              <a href="/artikel" class="nav-link">
+              <a href="/a_article" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Article</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/categories" class="nav-link">
+              <a href="/a_categories" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Category</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/users" class="nav-link">
+              <a href="/a_users" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Users</p>
               </a>
